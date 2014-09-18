@@ -12,7 +12,7 @@ var express = require('express'),
     var query = { 'grade' : 60};
     function callback(err, doc) {
           if(err) throw err;
-            res.render('hello', doc);
+            res.render('score', doc);
             console.dir(doc);
         } 
      db.collection('grade').findOne(query,callback);
