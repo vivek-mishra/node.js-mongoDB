@@ -8,7 +8,7 @@ var express = require('express'),
     app.set('views', __dirname + '/views');
     var mongoclient = new MongoClient(new Server("localhost", 27017));
     var db = mongoclient.db('course');
-    app.get('/', function(req, res){
+    app.get('/score', function(req, res){
     var query = { 'grade' : 60};
     function callback(err, doc) {
           if(err) throw err;
@@ -17,7 +17,7 @@ var express = require('express'),
         } 
      db.collection('grade').findOne(query,callback);
 });
-app.get('*', function(req, res){
+app.get('/404', function(req, res){
     res.send('Page Not Found', 404);
 });
 
